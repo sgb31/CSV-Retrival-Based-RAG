@@ -9,3 +9,4 @@ streamlit
 openai
 python-dotenv
 scikit-learn
+accelerate
