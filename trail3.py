@@ -7,7 +7,9 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 def load_model():
     model_id = "HuggingFaceH4/zephyr-7b-beta"
     tokenizer = AutoTokenizer.from_pretrained(model_id)
-    model = AutoModelForCausalLM.from_pretrained(model_id, device_map="auto", torch_dtype="auto")
+    import torch
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model = AutoModelForCausalLM.from_pretrained(model_id).to(device)
     return pipeline("text-generation", model=model, tokenizer=tokenizer)
 
 chatbot = load_model()
