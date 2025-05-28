@@ -1,0 +1,10 @@
+pandas
+numpy
+ollama
+sentence-transformers
+python-docx
+pymongo[srv]
+openpyxl
+streamlit
+openai
+python-dotenv
